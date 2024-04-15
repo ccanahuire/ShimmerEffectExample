@@ -9,3 +9,18 @@ This repository demonstrates how to create a shimmer loading effect using Jetpac
 ## How it Works
 
 The shimmer loading effect is achieved by using a linear gradient `Brush` in Jetpack Compose. The logic behind the shimmer animation is just to create an infinite transition to the gradient offset position to create the shimmering effect. This transition gives the appearance of a shimmer as the gradient moves smoothly across the UI component.
+
+We can directly set the shimmer brush as a composable background:
+```kotlin
+@Composable
+fun CirclePlaceholder(
+    size: Dp,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .size(size)
+            .clip(CircleShape)
+            .background(shimmerBrush()) // This makes the shimmer effect animation.
+    )
+}

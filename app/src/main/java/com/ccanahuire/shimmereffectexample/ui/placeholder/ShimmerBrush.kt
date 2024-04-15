@@ -34,17 +34,19 @@ fun shimmerBrush(): Brush {
     }
 
     val transition = rememberInfiniteTransition("Shimmer infinite transition")
-    val translateAnimation = transition.animateFloat(
+    val gradientOffsetAnimation = transition.animateFloat(
         initialValue = 0f,
         targetValue = targetOffset,
         animationSpec = infiniteRepeatable(
-            animation = tween(1500), repeatMode = RepeatMode.Restart
+            animation = tween(ShimmerAnimationDuration), repeatMode = RepeatMode.Restart
         ),
         label = "Shimmer loading animation"
     )
      return Brush.linearGradient(
         colors = shimmerColors,
         start = Offset.Zero,
-        end = Offset(x = translateAnimation.value, y = translateAnimation.value)
+        end = Offset(x = gradientOffsetAnimation.value, y = gradientOffsetAnimation.value)
     )
 }
+
+private const val ShimmerAnimationDuration = 1500

@@ -24,3 +24,6 @@ fun CirclePlaceholder(
             .background(shimmerBrush()) // This makes the shimmer effect animation.
     )
 }
+```
+## Credits and References
+- To create the shimmer effect I got inspired by this implementation, so for more information please check out [this Medium article](https://medium.com/@m.derakhshan/how-to-implement-the-shimmer-effect-using-jetpack-compose-fc0e81e47747).
